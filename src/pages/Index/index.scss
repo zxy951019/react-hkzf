@@ -1,0 +1,141 @@
+.home{
+    margin-bottom: 35px;
+}
+.swiper{
+    height: 212px;
+    position: relative;
+    .top{
+        position: absolute;
+        top:25px;
+        width: 100%;
+        padding: 0 10px;
+        .search{
+            flex: 1;
+            height: 34px;
+            margin: 0 10px;
+            padding: 5px 5px 5px 8px;
+            border-radius: 3px;
+            background-color: #fff;
+            // 位置
+        .location {
+            .icon-arrow {
+                margin-left: 2px;
+                font-size: 12px;
+                color: #7f7f80;
+            }
+        }
+        // 搜索表单
+        .form {
+            border-left: solid 1px #e5e5e5;
+            margin-left: 12px;
+            line-height: 16px;
+            .icon-seach {
+                vertical-align: middle;
+                padding: 0 2px 0 12px;
+                color: #9c9fa1;
+                font-size: 15px;
+            }
+            .text {
+                padding-left: 4px;
+                font-size: 13px;
+                color: #9c9fa1;
+            }
+        }
+        }
+        // 右侧地图图标
+        .icon-map {
+            font-size: 25px;
+            color: #fff;
+        }
+    }
+    
+}
+.nav{
+    padding: 10px 0;
+    img{
+        width: 48px;
+    }
+    span{
+        display: block;
+        font-weight: 700;
+    }
+}
+.am-flexbox-item{
+    text-align: center;
+}
+.groups{
+    padding: 10px;
+    padding-top: 0px;
+    background-color: #eee;
+    .title{
+        display: flex;
+        justify-content: space-between;
+        height: 40px;
+        line-height: 40px;
+        h3{
+            margin: 0;
+        }
+    }
+    .am-grid .am-flexbox{
+        margin-bottom: 10px;
+        background-color: inherit;
+        .am-flexbox-item.am-grid-item{
+            background-color: #fff;
+        }
+        .am-flexbox-item.am-grid-item:first-child{
+            margin-right: 10px;
+        }
+    }
+    .am-grid .am-flexbox .am-flexbox-item .am-grid-item-content{
+        padding: 5px 0;
+    }
+    &-item{
+        img{
+            width: 50px;
+        }
+       p{
+           margin:0;
+       } 
+       .title{
+        height: 20px;
+        line-height: 20px;
+        font-weight: 700;
+        margin-bottom: 5px;
+       }
+    } 
+}
+.news{
+    padding:10px;
+    img{
+        width: 100px;
+    }
+    .title{
+        margin: 0px;
+        font-size:14px;
+    }
+    .am-flexbox-item:first-child{
+        flex: 1;
+    }
+    .am-flexbox-item:last-child{
+        flex: 2;
+    }
+    .am-card::before{
+        border: none!important;
+    }
+    .am-card{
+        border-bottom: 1px solid #ccc;
+    }
+    .am-card-body::before{
+        height: 0px!important;
+    }
+    .am-card-body{
+        padding: 0px;
+        border-bottom: 1px solid #ccc;
+    }
+    .content{
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        margin-top: 12px;
+    }
+}
