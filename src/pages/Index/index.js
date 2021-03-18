@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 // 导入组件
-import { Carousel, Flex, Grid, Card, InputItem } from 'antd-mobile';
+import { Carousel, Flex, Grid, Card } from 'antd-mobile';
 // 引入图片
 import Nav1 from '../../assest/images/nav-1.png'
 import Nav2 from '../../assest/images/nav-2.png'
@@ -32,10 +32,6 @@ const navs = [{
     title: '去出租',
     path: '/home/list'
 }]
-const data = Array.from(new Array(4)).map((_val, i) => ({
-    icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-    text: `name${i}`,
-  }));
   // 获取地理位置信息
   navigator.geolocation.getCurrentPosition(position=>{
         console.log('当前位置信息：',position);
@@ -45,7 +41,8 @@ export default class Index extends React.Component{
         swipers: [],//轮播图片名称
         isRenderSwiper:false,//是否渲染轮播图
         groups:[],
-        news:[]
+        news:[],
+        currentCity:''
       }
     /*  获取轮播图
     // 轮播图存在的问题
@@ -106,7 +103,7 @@ export default class Index extends React.Component{
         return navs.map((item)=>{
             return (
                 <Flex.Item key={item.id} onClick={()=>this.props.history.push(item.path)}>
-                    <img src={item.img}></img>
+                    <img src={item.img} alt=""></img>
                     <span>{item.title}</span>
                 </Flex.Item>
             )
@@ -149,6 +146,15 @@ export default class Index extends React.Component{
         this.getSwipers()
         this.getGroups()
         this.getNews()
+        // 获取当前位置
+        const curCity=new window.BMapGL.LocalCity()
+        curCity.get(async res=>{
+            // 根据城市名查询租房信息
+            const result=await axios.get(`http://localhost:8080/area/info?name=${res.name}`)
+            this.setState({
+                currentCity:result.data.body.label
+            })
+        })
         // simulate img loading
         setTimeout(() => {
           this.setState({
@@ -173,7 +179,7 @@ export default class Index extends React.Component{
                         <Flex className="search">
                             {/* w位置 */}
                             <div className="location" onClick={()=>this.props.history.push('citylist')}>
-                                <span className="name">上海</span>
+                                <span className="name">{this.state.currentCity}</span>
                                 <i className="iconfont icon-arrow"></i>
                             </div>
                             {/* 搜索表单 */}
@@ -183,7 +189,7 @@ export default class Index extends React.Component{
                             </div>
                         </Flex>
                         {/* 右侧图标 */}
-                        <i className="iconfont icon-map" onClick={()=>this.props.history.push('Maplist')}></i>
+                        <i className="iconfont icon-map" onClick={()=>this.props.history.push('map')}></i>
                     </Flex>
                 </div>
                 

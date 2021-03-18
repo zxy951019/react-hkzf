@@ -3,7 +3,7 @@
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Home from './pages/Home/index'
 import CityList from './pages/CityList/index'
-import MapList from './pages/MapList/index'
+import Map from './pages/MapList/index'
 function App() {
   return (
     <Router>
@@ -13,7 +13,7 @@ function App() {
       <Route exact path='/' component={()=><Redirect to='/home' />}></Route>
       <Route path='/home' component={Home}></Route>
       <Route path='/citylist' component={CityList}></Route>
-      <Route path='/maplist' component={MapList}></Route>
+      <Route path='/map' component={Map}></Route>
     </div>
     </Router>
   );
